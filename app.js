@@ -6,10 +6,11 @@ var logger = require('morgan');
 var mongoose = require('mongoose');
 var indexRouter = require('./app/routes/index');
 var usersRouter = require('./app/routes/users');
-var permissionsRoute=require('./app/routes/permissions')
+var permissionsRoute = require('./app/routes/permissions')
 var app = express();
+var cors = require('cors')
 mongoose.Promise = global.Promise;
-
+app.use(cors())
 // view engine setup
 app.set('views', path.join(__dirname + '/app/', 'views'));
 app.set('view engine', 'ejs');
@@ -24,7 +25,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/permissions', permissionsRoute);
 
-
+ 
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

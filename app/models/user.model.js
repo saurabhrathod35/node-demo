@@ -8,7 +8,7 @@ const USER = mongoose.Schema({
     password: String,
     firstname: String,
     lastname: String,
-    peremission : [{ type: Schema.Types.ObjectId, ref: 'permissions' }]
+    peremissions : [{ type: Schema.Types.ObjectId, ref: 'permissions' }]
 },{
     timestamps:true
 })

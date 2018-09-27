@@ -76,7 +76,7 @@ const findupdate = (req, res, next) => {
 const permissionsCreate = async (req, res, next) => {
     const newPermission = new PERMISSIONSCHEMA(req.body)
     const user = await USER.findById(req.params.userId);
-    user.peremission.push(newPermission._id);
+    user.peremissions.push(newPermission._id);
     await user.save();
     await newPermission.save();
     res.status(201).json(user)
